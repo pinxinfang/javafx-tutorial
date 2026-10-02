@@ -9,7 +9,7 @@ import javafx.scene.layout.Region;
 /** A reusable chat row containing a message and the speaker's avatar. */
 public class DialogBox extends HBox {
     /** Builds a right-aligned row for the supplied message and avatar. */
-    public DialogBox(String message, Image image) {
+    private DialogBox(String message, Image image) {
         Label text = new Label(message);
         text.setWrapText(true);
         text.setMinHeight(Region.USE_PREF_SIZE);
@@ -22,5 +22,24 @@ public class DialogBox extends HBox {
         setSpacing(10);
         setMinHeight(Region.USE_PREF_SIZE);
         getChildren().addAll(text, picture);
+    }
+
+    /** Puts the avatar first and aligns the reply with the left edge. */
+    private void flip() {
+        var picture = getChildren().remove(1);
+        getChildren().addFirst(picture);
+        setAlignment(Pos.TOP_LEFT);
+    }
+
+    /** Creates a right-aligned user message. */
+    public static DialogBox getUserDialog(String message, Image image) {
+        return new DialogBox(message, image);
+    }
+
+    /** Creates a left-aligned Duke reply. */
+    public static DialogBox getDukeDialog(String message, Image image) {
+        DialogBox box = new DialogBox(message, image);
+        box.flip();
+        return box;
     }
 }

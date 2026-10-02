@@ -1,4 +1,4 @@
-# JavaFX tutorial — Part 2
+# JavaFX tutorial — Part 3
 
 Implementation of [SE-EDU's JavaFX tutorial](https://se-education.org/guides/tutorials/javaFx.html),
 using its [starter repository](https://github.com/se-edu/javafx-tutorial).
@@ -25,3 +25,10 @@ wrapping `Label` and an `ImageView`. This checkpoint displays a sample message.
 
 The `DaUser.png` and `DaDuke.png` images come from
 [SE-EDU's tutorial assets](https://github.com/se-edu/guides/tree/master/tutorials/images/javafx).
+
+## Part 3 — Events and replies
+
+Enter and Send use the same handler. Each submission adds a user dialog and
+Duke's echo response, clears the field, and restores keyboard focus. A height
+listener scrolls to the latest message while allowing manual scrolling later.
+The two dialog factory methods position the speaker's avatar on opposite sides.

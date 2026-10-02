@@ -1,7 +1,7 @@
-/** The tutorial's chatbot, separate from its graphical interface. */
+/** Generates chatbot replies independently of the JavaFX interface. */
 public class Duke {
-    /** Runs the starter's console greeting. */
-    public static void main(String[] args) {
-        System.out.println("Hello!");
+    /** Returns the simple echo response used in tutorial Part 3. */
+    public String getResponse(String input) {
+        return "Duke heard: " + input;
     }
 }
