@@ -1,4 +1,4 @@
-# JavaFX tutorial — Part 1
+# JavaFX tutorial — Part 2
 
 Implementation of [SE-EDU's JavaFX tutorial](https://se-education.org/guides/tutorials/javaFx.html),
 using its [starter repository](https://github.com/se-edu/javafx-tutorial).
@@ -16,3 +16,12 @@ a separate `Launcher`, and a Hello World window. `Stage` is the window,
 `Scene` holds its contents, and `Label` is the visible node.
 
 Codex assisted with implementing, documenting, and checking the tutorial.
+
+## Part 2 — Controls and layout
+
+`AnchorPane` positions the input and Send button beneath a `ScrollPane`.
+A `VBox` stacks chat rows; each reusable `DialogBox` is an `HBox` with a
+wrapping `Label` and an `ImageView`. This checkpoint displays a sample message.
+
+The `DaUser.png` and `DaDuke.png` images come from
+[SE-EDU's tutorial assets](https://github.com/se-edu/guides/tree/master/tutorials/images/javafx).
