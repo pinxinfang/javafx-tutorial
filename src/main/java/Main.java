@@ -15,6 +15,8 @@ public class Main extends Application {
         AnchorPane root = loader.load();
         loader.<MainWindow>getController().setDuke(new Duke());
         stage.setTitle("Duke — JavaFX Tutorial");
+        stage.setMinWidth(360);
+        stage.setMinHeight(280);
         stage.setScene(new Scene(root));
         stage.show();
     }

@@ -33,6 +33,7 @@ public class DialogBox extends HBox {
     private void flip() {
         getChildren().setAll(displayPicture, dialog);
         setAlignment(Pos.TOP_LEFT);
+        dialog.getStyleClass().add("reply-label");
     }
 
     /** Creates a right-aligned user message. */

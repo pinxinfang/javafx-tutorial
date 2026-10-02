@@ -33,6 +33,8 @@ public class MainWindow {
     /** Supplies the chatbot that generates replies for this window. */
     public void setDuke(Duke duke) {
         this.duke = duke;
+        dialogContainer.getChildren().add(DialogBox.getDukeDialog(
+                "Hello! I'm Duke. Type a message and I'll echo it back.", dukeImage));
     }
 
     /** Adds the user's message and Duke's reply, then prepares for more input. */

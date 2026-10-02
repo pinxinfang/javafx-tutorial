@@ -6,10 +6,15 @@
 <?import javafx.scene.layout.HBox?>
 
 <fx:root type="javafx.scene.layout.HBox" alignment="TOP_RIGHT" spacing="10.0"
-         minHeight="-Infinity" prefWidth="400.0"
+         minHeight="-Infinity" prefWidth="400.0" stylesheets="@../css/dialog-box.css"
          xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="dialog" text="Message" wrapText="true" minWidth="0.0" minHeight="-Infinity" />
+        <Label fx:id="dialog" text="Message" styleClass="dialog-label" wrapText="true"
+               minWidth="0.0" minHeight="-Infinity">
+            <HBox.margin>
+                <Insets left="4.0" right="4.0" />
+            </HBox.margin>
+        </Label>
         <ImageView fx:id="displayPicture" fitWidth="70.0" fitHeight="70.0" preserveRatio="true" />
     </children>
     <padding>
