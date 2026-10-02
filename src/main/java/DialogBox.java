@@ -1,33 +1,37 @@
-import javafx.geometry.Insets;
+import java.io.IOException;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 
-/** A reusable chat row containing a message and the speaker's avatar. */
+/** A reusable FXML chat row with a message and its speaker's avatar. */
 public class DialogBox extends HBox {
-    /** Builds a right-aligned row for the supplied message and avatar. */
+    @FXML
+    private Label dialog;
+    @FXML
+    private ImageView displayPicture;
+
+    /** Uses this object as both the FXML root node and its controller. */
     private DialogBox(String message, Image image) {
-        Label text = new Label(message);
-        text.setWrapText(true);
-        text.setMinHeight(Region.USE_PREF_SIZE);
-        ImageView picture = new ImageView(image);
-        picture.setFitWidth(70);
-        picture.setFitHeight(70);
-        picture.setPreserveRatio(true);
-        setAlignment(Pos.TOP_RIGHT);
-        setPadding(new Insets(12));
-        setSpacing(10);
-        setMinHeight(Region.USE_PREF_SIZE);
-        getChildren().addAll(text, picture);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DialogBox.fxml"));
+        loader.setRoot(this);
+        loader.setController(this);
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new IllegalStateException("Unable to load the chat dialog layout.", e);
+        }
+        dialog.setText(message);
+        displayPicture.setImage(image);
     }
 
-    /** Puts the avatar first and aligns the reply with the left edge. */
+    /** Places the avatar before the text and aligns the reply to the left. */
     private void flip() {
-        var picture = getChildren().remove(1);
-        getChildren().addFirst(picture);
+        getChildren().setAll(displayPicture, dialog);
         setAlignment(Pos.TOP_LEFT);
     }
 
